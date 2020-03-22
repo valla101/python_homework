@@ -51,14 +51,30 @@ otooley_percentage = (vote_otooley/total_votes)*100
 print("Election Results")
 print("-----------------")
 print(f'Total Votes: {total_votes} ')
-print("-----------------")
-print (f'Khan: {khan_percentage} ({vote_khan}) ')
-print("-----------------")
-print(f'Correy: {correy_percentage} ({vote_correy}) ')
-print("-----------------")
-print (f"Li Votes: {li_percentage} ({vote_li})")
-print("-----------------")
-print (f"O'Tooley Votes: {otooley_percentage} ({vote_otooley})")
 
+print (f'Khan: {str(round(khan_percentage,4))}% ({vote_khan}) ')
 
+print(f'Correy: {str(round(correy_percentage,4))}% ({vote_correy}) ')
+
+print (f"Li Votes: {str(round(li_percentage,4))}% ({vote_li})")
+
+print (f"O'Tooley Votes: {str(round(otooley_percentage,4))}% ({vote_otooley})")
+
+print("-----------------")
 print("Winner: Khan")
+
+#locates directory for new text file
+output_path = os.path.join("py_poll.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+new_text_file = open(output_path, 'w')
+new_text_file.write("Election Results\n")
+new_text_file.write("-----------------\n")
+new_text_file.write(f'Total Votes: {total_votes}\n')
+new_text_file.write(f'Khan: {str(round(khan_percentage,4))}% ({vote_khan})\n ')
+new_text_file.write(f'Correy: {str(round(correy_percentage,4))}% ({vote_correy})\n ')
+new_text_file.write(f"Li Votes: {str(round(li_percentage,4))}% ({vote_li})\n")
+new_text_file.write(f"O'Tooley Votes: {str(round(otooley_percentage,4))}% ({vote_otooley})\n")
+new_text_file.write("-----------------\n")
+new_text_file.write("Winner: Khan\n")
+new_text_file.close()
